@@ -109,3 +109,113 @@ const swiper = new Swiper(".swiper", {
   spaceBetween: 20,
   loop: true,
 });
+
+
+// Firebase configuration
+// Form navigation elements
+const form = document.getElementById('registrationForm');
+const sections = document.querySelectorAll('.section');
+const steps = document.querySelectorAll('.step');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+const submitBtn = document.getElementById('submitBtn');
+
+let currentStep = 1;
+const totalSteps = sections.length;
+
+// Navigation functions
+function showSection(stepNumber) {
+    sections.forEach(section => {
+        section.classList.remove('active');
+    });
+    
+    steps.forEach(step => {
+        step.classList.remove('active', 'completed');
+    });
+
+    // Show current section
+    const currentSection = document.querySelector(`.section[data-step="${stepNumber}"]`);
+    currentSection.classList.add('active');
+
+    // Update steps
+    steps.forEach((step, index) => {
+        if (index + 1 < stepNumber) {
+            step.classList.add('completed');
+        } else if (index + 1 === stepNumber) {
+            step.classList.add('active');
+        }
+    });
+
+    // Update buttons
+    prevBtn.style.display = stepNumber === 1 ? 'none' : 'block';
+    nextBtn.style.display = stepNumber === totalSteps ? 'none' : 'block';
+    submitBtn.style.display = stepNumber === totalSteps ? 'block' : 'none';
+}
+
+// Validate current section
+function validateSection(stepNumber) {
+    const currentSection = document.querySelector(`.section[data-step="${stepNumber}"]`);
+    const inputs = currentSection.querySelectorAll('input[required]');
+    let isValid = true;
+
+    inputs.forEach(input => {
+        if (!input.value) {
+            isValid = false;
+            input.classList.add('invalid');
+        } else {
+            input.classList.remove('invalid');
+        }
+    });
+
+    return isValid;
+}
+
+// Event Listeners
+nextBtn.addEventListener('click', () => {
+    if (validateSection(currentStep)) {
+        currentStep++;
+        showSection(currentStep);
+    } else {
+        alert('Please fill in all required fields before proceeding.');
+    }
+});
+
+prevBtn.addEventListener('click', () => {
+    currentStep--;
+    showSection(currentStep);
+});
+
+// Initialize form
+showSection(1);
+
+// Add some basic styles for invalid fields
+const style = document.createElement('style');
+style.textContent = `
+    input.invalid {
+        border-color: #dc3545 !important;
+    }
+`;
+document.head.appendChild(style);
+
+// Firebase initialization and form submission (keep this part from the previous code)
+document.addEventListener('DOMContentLoaded', async () => {
+    try {
+        // Initialize Firebase (uncomment and add your config when ready)
+        /*
+        const firebaseConfig = {
+            // your config here
+        };
+        firebase.initializeApp(firebaseConfig);
+        */
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            if (validateSection(currentStep)) {
+                // Add your form submission logic here
+                console.log('Form submitted');
+            }
+        });
+    } catch (error) {
+        console.error('Error initializing Firebase:', error);
+    }
+});

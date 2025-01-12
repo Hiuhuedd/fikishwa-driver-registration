@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Success - Fikishwa Connections</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #007bff;
+            --success-color: #28a745;
+            --text-color: #333;
+            --background-color: #f8f9fa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .brand-header {
+            background-color: white;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .logo {
+            height: 60px;
+            width: auto;
+        }
+
+        .success-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .success-icon {
+            color: var(--success-color);
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .success-title {
+            color: var(--success-color);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .success-message {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: #666;
+        }
+
+        .next-steps {
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .next-steps h3 {
+            color: var(--text-color);
+            margin-bottom: 1rem;
+        }
+
+        .next-steps ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .next-steps li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .next-steps li:before {
+            content: "✓";
+            color: var(--success-color);
+            position: absolute;
+            left: 0;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+        .contact-info {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .success-container {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+
+            .success-title {
+                font-size: 1.5rem;
+            }
+
+            .next-steps {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="brand-header">
+        <div class="logo-container">
+            <img src="/icon5.png" alt="Fikishwa Connections Logo" class="logo">
+        </div>
+    </header>
+
+    <div class="success-container">
+        <i class="fas fa-check-circle success-icon"></i>
+        <h1 class="success-title">Registration Successful!</h1>
+        <p class="success-message">Thank you for registering as a driver partner with Fikishwa Connections. We have received your application and will review it shortly.</p>
+
+        <div class="next-steps">
+            <h3>Next Steps:</h3>
+            <ul>
+                <li>Our team will review your submitted documents within 24-48 hours</li>
+                <li>You will receive an email confirmation at your registered email address</li>
+                <li>If additional information is needed, we will contact you via phone or email</li>
+                <li>Once approved, you will receive your login credentials and onboarding details</li>
+            </ul>
+        </div>
+
+        <a href="/" class="button">Return to Homepage</a>
+
+        <div class="contact-info">
+            <p>Questions? Contact our support team:</p>
+            <p>Email: support@fikishwa.com | Phone: +254 XXX XXX XXX</p>
+        </div>
+    </div>
+</body>
+</html>
